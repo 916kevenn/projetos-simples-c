@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main()
+{
+double  valorHora,horasNormais,horasExtra,percentualExtra,taxaPlataforma;
+double total, extra, normal, taxa, liquido;
+printf("Valor por Hora: ");
+scanf("%lf", &valorHora);
+printf("Quantas Horas: ");
+scanf("%lf", &horasNormais);
+printf("Quantas Horas extras: ");
+scanf("%lf", &horasExtra);
+printf("Valor por Hora extra: ");
+scanf("%lf", &percentualExtra);
+printf("Taxa da Plataforma(%): ");
+scanf("%lf", &taxaPlataforma);
+normal = horasNormais*valorHora;
+extra = horasExtra*percentualExtra;
+total = horasNormais*valorHora+horasExtra*percentualExtra;
+taxa = total*(taxaPlataforma/100);
+liquido = total-taxa;
+printf("Valor horas: %.2lf\n", normal);
+printf("Valor horas extras: %.2lf\n", extra);
+printf("Valor Total bruto: %.2lf\n", total)
+printf("Valor da Taxa da Plataforma: %.2lf\n", taxa);
+printf("Valor Liquido: %.2lf\n", liquido);
+return 0;
+}
