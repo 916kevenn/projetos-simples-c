@@ -1,0 +1,22 @@
+#include <stdio.h>
+int main()
+{
+double KmPer, litros, precoLitro, metaConsumo;
+double medio, total, CustoPerKm, diff;
+printf("Km percorridos: ");
+scanf("%lf", &KmPer);
+printf("Litros Consumidos: ");
+scanf("%lf", &litros);
+printf("Preço do Litro: ");
+scanf("%lf", &precoLitro);
+printf("Meta de Consumo: ");
+scanf("%lf", &metaConsumo);
+medio = KmPer/litros;
+total = litros*precoLitro;
+CustoPerKm = total/KmPer;
+diff = litros-metaConsumo;
+printf("Consudo medio: %.2lf\n", medio);
+printf("Custo total: %.2lf\n", total);
+printf("Custo por Km: %.2lf\n", CustoPerKm);
+printf("Diferenca entre meta e consumo real: %.2lf\n", diff);
+}
