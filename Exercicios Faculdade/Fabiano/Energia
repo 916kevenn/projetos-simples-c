@@ -1,0 +1,23 @@
+int main()
+{
+double consumoKwh,precoKwh,taxaBandeira,iluminacaoPublica,outrasTaxas, custoEnergia,valorTotal,custoMedioKwh,custoAnual;
+printf("Consumo em Kwh: ");
+scanf("%lf", &consumoKwh);
+printf("Preço por Kwh: ");
+scanf("%lf", &precoKwh);
+printf("Taxa da Bandeira: ");
+scanf("%lf", &taxaBandeira);
+printf("Taxa Iluminacao Publica: ");
+scanf("%lf", &iluminacaoPublica);
+printf("Outras Taxas: ");
+scanf("%lf", &outrasTaxas);
+custoEnergia = consumoKwh*precoKwh;
+valorTotal = custoEnergia+((consumoKwh/100)*taxaBandeira) + iluminacaoPublica + outrasTaxas;
+custoAnual = valorTotal*12;
+custoMedioKwh = valorTotal/consumoKwh;
+printf("Custo Energia: %.2lf R$\n", custoEnergia);
+printf("Valor Total: %.2lf R$\n", valorTotal);
+printf("Custo Anual: %.2lf R$\n", custoAnual);
+printf("Custo Medio por Kwh: %.2lf", custoMedioKwh);
+return 0;
+}
