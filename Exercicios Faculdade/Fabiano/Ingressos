@@ -1,0 +1,32 @@
+
+#include <stdio.h>
+
+int main()
+{
+int prof, empre, estud;
+int totalPessoas, valEstud, valEmpre, valProf, totalVal, valMed;
+printf("Ingressos de Estudante: ");
+scanf("%d", &estud);
+printf("Ingressos de Profissional: ");
+scanf("%d", &prof);
+printf("Ingressos de Empresarial: ");
+scanf("%d", &empre);
+totalPessoas = prof+empre+estud;
+valEstud = estud*50;
+valEmpre = empre*250;
+valProf = prof*120;
+totalVal = valProf+valEmpre+valEstud;
+valMed = totalVal/totalPessoas;
+printf("Total de participantes: %d\n", totalPessoas);
+if(totalVal>20000){
+    totalVal = totalVal*0.95;
+    printf("Valor Total: %d\n", totalVal);
+}
+else{
+    printf("Valor Total: %d\n", totalVal);
+}
+printf("Receita estudante: %d\n", valEstud);
+printf("Receita empresarial: %d\n", valEmpre);
+printf("Receita Profissional: %d\n", valProf);
+printf("Preço medio por participante: %d", valMed);
+}
