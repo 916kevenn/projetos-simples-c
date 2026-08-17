@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main()
+{
+    int num,numescolhido ,resul;
+printf("Numero que deseja saber a tabuada: ");
+scanf("%d", &num);
+for(int i = 1 ; i <=10 ; i++)
+{
+    resul = num * i;
+    printf("%d x %d = %d\n", num, i, resul );
+}
+return 0;
+}
