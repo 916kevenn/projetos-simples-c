@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+void printboard(char board[3][3]){
+printf("%c", board[0][0]);     printf("%c", board[0][1]);     printf("%c\n", board[0][2]);
+printf("%c", board[1][0]);     printf("%c", board[1][1]);     printf("%c\n", board[1][2]);
+printf("%c", board[2][0]);     printf("%c", board[2][1]);     printf("%c\n", board[2][2]);
+}
+char verificarVitoria(char board[3][3]) {
+for(int i = 0; i>=3; i++){
+    if(board[0][i] == 'O' || 'X')
+    if(board[i][0] == 'O' || 'X')
+    if(board[0][0] == board[1][1] == board[2][2])
+    if(board[0][2] == board[1][1] == board[2][0])
+}
+}
+int main() {
+char board[3][3] = {{"-"  "-" "-"}, {"-"  "-" "-"}, {"-"  "-" "-"}};
+char escolha;
+int colocar, colocar1;
+printf("O ou X? ");
+scanf("%c", &escolha);
+char vencedor = ' ';
+if(escolha == 'O'){
+for(int i = 0 ; i<5; i++){
+   printboard(board);
+    printf("Onde deseja colocar o O (0,0): ");
+    scanf("%d, %d", &colocar, &colocar1);
+    board[colocar][colocar1] = 'O';
+    printboard(board);
+printf("Onde deseja colocar o X (0,0): ");
+scanf("%d, %d", &colocar, &colocar1);
+board[colocar][colocar1] = 'X';
+   printboard(board);
+   verificarVitoria(board);
+}
+    }
+    else{
+     printboard(board);
+    printf("Onde deseja colocar o X (0,0): ");
+    scanf("%d, %d", &colocar, &colocar1);
+    board[colocar][colocar1] = 'X';
+    printboard(board);
+printf("Onde deseja colocar o O (0,0): ");
+scanf("%d, %d", &colocar, &colocar1);
+board[colocar][colocar1] = 'O';
+   printboard(board);
+}
+}
+
