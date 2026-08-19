@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main()
+{
+int quant;
+float soma = 0;
+printf("Quantas de Notas deseja calcular a media? ");
+scanf("%d", &quant);
+float notas[quant];
+for(int i = 0 ; i<quant ; i++){
+    printf("Digite as notas: ");
+    scanf("%f", &notas[i]);
+}
+for (int i = 0 ; i<quant; i++){
+    soma += notas[i];
+}
+printf("Media: %.2f\n", soma/quant);
+int aprovados = 0;
+int reprovados = 0;
+for(int i= 0 ; i<quant ; i++){
+if (notas[i]>=6){
+    aprovados++;
+}
+else {
+    reprovados++;
+}
+}
+printf("Aprovados: %d\n", aprovados);
+printf("Reprovados: %d", reprovados);
+return 0;
+}
