@@ -1,0 +1,41 @@
+
+#include <stdio.h>
+
+int main()
+{
+	int exame = 0;
+	int aprovado = 0;
+	int reprovado = 0;
+	float notas[10];
+	char nomes[10][30];
+	for(int i = 0; i <10; i++) {
+		printf("Nome do Aluno: ");
+		scanf("%s", nomes[i]);
+		printf("Nota do(a) %s: ", nomes[i]);
+		scanf("%f", &notas[i]);
+	}
+	for(int i = 0; i<10; i++) {
+		if(notas[i]>=7.0) {
+			aprovado++;
+		}
+	}
+	for(int i = 0; i<10; i++) {
+		if(4.0<notas[i]>6.9) {
+			exame++;
+		}
+	}
+	for(int i = 0; i<10; i++) {
+		if(notas[i]<4.0) {
+			reprovado++;
+		}
+	}
+		for(int i = 0; i<10; i++) {
+		int soma = 0;
+		soma+=notas[i]
+		}
+ int media = soma/10;
+	printf("Quantidade de Alunos aprovados: %d", aprovado);
+	printf("Quantidade de Alunos de exame: %d", exame);
+	printf("Quantidade de Alunos reprovados: %d", reprovado);
+	printf("Media da Turma: %d", media);
+}
