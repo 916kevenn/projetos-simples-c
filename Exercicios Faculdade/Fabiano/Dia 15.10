@@ -1,0 +1,165 @@
+1 - programa
+{
+    funcao inicio()
+    {
+        inteiro numeros[5]
+        inteiro i
+
+        para (i = 0; i < 5; i++)
+        {
+            escreva("Digite um número: ")
+            leia(numeros[i])
+        }
+
+        para (i = 0; i < 5; i++)
+        {
+            escreva(numeros[i], "\n")
+        }
+    }
+}
+
+2 - programa {
+  funcao inicio() {
+    inteiro numero[5]
+    inteiro soma = 0
+    para(inteiro i = 0 ; i < 5 ; i++){
+      escreva("Número: ")
+    leia(numero[i])
+    soma += numero[i]
+    }
+    escreva("Números digitados: ", numero[0]," ", numero[1]," ", numero[2]," ", numero[3]," ", numero[4]," ")
+    escreva("\nSoma: ", soma)
+  }
+}
+
+3 - programa {
+  funcao inicio() {
+    real notas[8]
+    real media = 0
+    para(inteiro i = 0; i<8 ; i++){
+      escreva("Nota: ")
+      leia(notas[i])
+      media += notas[i]
+    }
+    media = media / 8
+    escreva("Media da Sala: ", media)
+  }
+}
+
+4 - programa {
+  funcao inicio() {
+    inteiro num[10]
+    inteiro maior , menor
+    inteiro first
+      escreva("Numero: ")
+      leia(num[0])
+      menor = num[0] 
+      maior = num[0]
+    para(inteiro i = 1 ; i<10 ; i++){
+      escreva("Numero: ")
+      leia(num[i])
+      se(num[i] < menor){
+        menor = num[i]
+      }
+      se(num[i] > maior){
+maior = num[i]
+      }
+    }
+          escreva("Maior: ", maior)
+      escreva("\nMenor: ", menor)
+  }
+}
+
+5 - programa {
+  funcao inicio() {
+    inteiro num[15]
+    inteiro par = 0 , impar = 0
+    para(inteiro i = 0 ; i<15 ; i++){
+      escreva("Numero: ")
+      leia(num[i])
+      se(num[i] % 2 == 0){
+        par++
+      }
+      senao{
+        impar++
+      }
+    }
+    escreva("Quantidade Par: ", par)
+    escreva("Quantidade Impar: ", impar)
+  }
+}
+
+6 - programa {
+  funcao inicio() {
+    inteiro num[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+    inteiro sair = 1
+    inteiro escolha2
+    logico encontrado = falso
+    enquanto(sair != 0){
+      escreva("\nMENU\n")
+      escreva("1 - Busque um numero\n")
+      escreva("0 - Sair\n")
+      escreva("Escolha: ")
+      leia(sair)
+      se(sair == 1){
+        escreva("Digite um numero: ")
+        leia(escolha2)
+        para(inteiro i = 0 ; i<10 ; i++){
+          se(num[i] == escolha2){
+            encontrado = verdadeiro
+          }
+      }
+      se(encontrado == verdadeiro){
+  escreva("Numero Encontrado")
+}
+senao{
+  escreva("Numero nao Encontrado")
+}
+    }
+  }
+}
+}
+
+7 - programa {
+  funcao inicio() {
+    inteiro num[8]
+    para(inteiro i = 0 ; i<8 ; i++){
+      escreva("Numero: ")
+      leia(num[i])
+    }
+    para(inteiro i = 7 ; i > 0 ; i--){
+      escreva("Numero: ", num[i], " ")
+    }
+  }
+}
+
+8 - 	programa {
+  funcao inicio() {
+    inteiro num[12]
+    inteiro par[12]
+    inteiro impar[12]
+    inteiro QuantPar = 0
+    inteiro QuantImpar = 0
+    para(inteiro i = 0 ; i<12 ; i++){
+      escreva("Numero: ")
+      leia(num[i])
+      se(num[i] % 2 == 0){
+        par[QuantPar] = num[i]
+        QuantPar++
+      }
+      senao{
+        impar[QuantImpar] = num[i]
+        QuantImpar++
+      }
+    }
+          escreva("Pares: ")
+    para(inteiro i = 0 ; i<QuantPar; i++){
+      escreva(par[i], " ")
+    }
+          escreva("Impares: ")
+    para(inteiro i = 0 ; i<QuantImpar; i++){
+      escreva(impar[i], " ")
+    }
+  }
+}
+
