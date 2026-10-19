@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main(){
+int num = 1;
+int maior = 1;
+while(num != 0){
+	printf("Numero (0 para Sair): ");
+	scanf("%i", &num);
+	if(num >= maior){
+		maior = num;
+	}
+}
+printf("Maior Numero: %i", maior);
+}
