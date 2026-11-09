@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct StProduto{
+	int codigo;
+	float valor;
+	char nome[50];
+};
+
+int total = 0;
+int escolha;
+struct StProduto produto[100];
+
+void cadastro(){
+	printf("Nome do Produto: ");
+	fflush(stdin);
+	fgets(produto[total].nome , sizeof(produto[total].nome), stdin);
+	printf("Valor do Produto: ");
+	scanf("%f", &produto[total].valor);
+	printf("Codigo do Produto: ");
+	scanf("%d", &produto[total].codigo);
+	total++;
+}
+
+void listar(){
+	system("cls");	
+	for(int i = 0 ; i<total ; i++){
+		printf("Dados do Produto\n");
+		printf("Nome: %s", produto[i].nome);
+		printf("Valor: %f\n", produto[i].valor);
+		printf("Codigo: %d", produto[i].codigo);
+		printf("\n-------------------\n");
+	}
+}
+
+
+void menu(){
+	printf("1 - Cadastrar\n");
+	printf("2 - Consultar\n");
+	printf("3 - Listar\n");
+	printf("4 - Remover\n");
+	printf("5 - Sair do	Sistema\n");
+	printf("Digite uma Opçao: ");
+}
+int main(){
+	system("cls");
+	while(escolha != 5){
+	 menu();
+	 scanf("%i", &escolha);
+	 switch(escolha){
+	 	case 1: 
+		 {
+	 		cadastro();
+			break;
+		 }
+		 case 2:
+		 {
+		 	listar();
+			break;
+		 }
+		 case 3:
+		 {
+		 	listar();
+			break;
+		 }
+	 }
+}
+}
