@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <locale.h>
 
 struct StProduto{
 	int codigo;
@@ -13,8 +14,10 @@ int total = 0;
 int escolha;
 struct StProduto produto[100];
 int CodeConsulta;
-bool encontrado = false;
+bool encontradoConsultar = false;
 bool equalCode = true;
+bool sair = false;
+bool encontradoRemover;
 
 void cadastro(){
 	int tempCode;
@@ -37,15 +40,17 @@ void cadastro(){
 			printf("Tente outro Codigo\n");
 }
 		else{
-			printf("Produto Cadastrado com Sucesso!");
+			printf("Produto Cadastrado com Sucesso!\n");
 			produto[total].codigo = tempCode;
 			total++;
 			break;
 		}
 }
+system("pause");
 }
 
 void consultar(){
+	encontradoConsultar = false;
 	printf("Codigo do Produto: ");
 	scanf("%d", &CodeConsulta);
 	for(int i = 0; i<total ; i++){
@@ -56,25 +61,29 @@ void consultar(){
 			printf("Valor: %.2f\n", produto[i].valor);
 			printf("Codigo: %d", produto[i].codigo);
 			printf("\n-------------------\n");
-			encontrado = true;
+			encontradoConsultar = true;
 			break;
 		}
 	}
-	if(!encontrado){
-	printf("Produto nao Encontrado");	
+	if(encontradoConsultar == false){
+	printf("Produto não Encontrado.\n");	
 	}
+	system("pause");
 }
 
 void listar(){
-	system("cls");	
 	for(int i = 0 ; i<total ; i++){
 		printf("-------------------\n");
 		printf("Dados do Produto\n");
 		printf("Nome: %s", produto[i].nome);
-		printf("Valor: %f\n", produto[i].valor);
+		printf("Valor: %.2f\n", produto[i].valor);
 		printf("Codigo: %d", produto[i].codigo);
 		printf("\n-------------------\n");
 	}
+	if(total == 0){
+		printf("Nenhum produto cadastrado.\n");
+	}
+	system("pause");
 }
 
 void remover(){
@@ -87,19 +96,22 @@ void remover(){
 				produto[j] = produto[j+1];
 			}
 			total--;
-			encontrado = true;
+			encontradoRemover = true;
 			printf("Produto removido com sucesso!\n");
 			break;
 		}
 	}
-	if(encontrado == false){
-		printf("Codigo não Encontrado");
+	if(encontradoRemover == false){
+		printf("Codigo não Encontrado\n");
 	}
+	system("pause");
 }
 
 
 void menu(){
-	printf("\n1 - Cadastrar\n");
+	printf("--------Sistema--------\n");
+	printf("-----------------------\n");
+	printf("1 - Cadastrar\n");
 	printf("2 - Consultar\n");
 	printf("3 - Listar\n");
 	printf("4 - Remover\n");
@@ -108,7 +120,9 @@ void menu(){
 }
 
 int main(){
-	while(escolha != 5){;
+	setlocale(LC_ALL, "Portuguese");
+	while(sair == false){
+		system("CLS");
 		menu();
 		scanf("%i", &escolha);
 		switch(escolha){
@@ -134,6 +148,19 @@ int main(){
 		{
 			system("CLS");
 			remover();
+			break;
+		}
+		case 5:
+		{
+		system("CLS");
+		printf("Saindo do Sistema...");
+		sair = true;
+			break;
+		}
+		default:{
+			system("CLS");
+			printf("Opção Invalida. Tente Novamente\n");
+			system("pause");
 			break;
 		}
 		}
