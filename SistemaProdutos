@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
 
 struct StProduto{
 	int codigo;
@@ -10,21 +12,63 @@ struct StProduto{
 int total = 0;
 int escolha;
 struct StProduto produto[100];
+int CodeConsulta;
+bool encontrado = false;
+bool equalCode = true;
 
 void cadastro(){
+	int tempCode;
+	while(equalCode == true){
 	printf("Nome do Produto: ");
-	fflush(stdin);
+	getchar();
 	fgets(produto[total].nome , sizeof(produto[total].nome), stdin);
 	printf("Valor do Produto: ");
 	scanf("%f", &produto[total].valor);
 	printf("Codigo do Produto: ");
-	scanf("%d", &produto[total].codigo);
-	total++;
+	scanf("%d", &tempCode);
+		bool equalCode = false;
+	for(int i = 0; i<total ; i++){
+		if(tempCode == produto[i].codigo){
+			equalCode = true;
+		}
+	}
+		if(equalCode == true){
+			printf("Codigo Existente\n");
+			printf("Tente outro Codigo\n");
+}
+		else{
+			printf("Produto Cadastrado com Sucesso!");
+			produto[total].codigo = tempCode;
+			total++;
+			break;
+		}
+}
+}
+
+void consultar(){
+	printf("Codigo do Produto: ");
+	scanf("%d", &CodeConsulta);
+	for(int i = 0; i<total ; i++){
+		if(CodeConsulta == produto[i].codigo){
+			printf("-------------------\n");
+			printf("Produto Encontrado\n");
+			printf("Nome: %s", produto[i].nome);
+			printf("Valor: %.2f\n", produto[i].valor);
+			printf("Codigo: %d", produto[i].codigo);
+			printf("\n-------------------\n");
+			encontrado = true;
+			break;
+		}
+	}
+	if(!encontrado){
+	printf("Produto nao Encontrado");	
+	}
 }
 
 void listar(){
 	system("cls");	
 	for(int i = 0 ; i<total ; i++){
+		printf("-------------------\n");
 		printf("Dados do Produto\n");
 		printf("Nome: %s", produto[i].nome);
 		printf("Valor: %f\n", produto[i].valor);
@@ -33,36 +77,65 @@ void listar(){
 	}
 }
 
+void remover(){
+	int CodeRemove;
+	printf("Codigo do Produto: ");
+	scanf("%d", &CodeRemove);
+	for(int i = 0; i<total; i++){
+		if(CodeRemove == produto[i].codigo){
+			for(int j = i; j<total -1; j++){
+				produto[j] = produto[j+1];
+			}
+			total--;
+			encontrado = true;
+			printf("Produto removido com sucesso!\n");
+			break;
+		}
+	}
+	if(encontrado == false){
+		printf("Codigo não Encontrado");
+	}
+}
+
 
 void menu(){
-	printf("1 - Cadastrar\n");
+	printf("\n1 - Cadastrar\n");
 	printf("2 - Consultar\n");
 	printf("3 - Listar\n");
 	printf("4 - Remover\n");
-	printf("5 - Sair do	Sistema\n");
+	printf("5 - Sair do Sistema\n");
 	printf("Digite uma Opçao: ");
 }
+
 int main(){
-	system("cls");
-	while(escolha != 5){
-	 menu();
-	 scanf("%i", &escolha);
-	 switch(escolha){
-	 	case 1: 
-		 {
-	 		cadastro();
+	while(escolha != 5){;
+		menu();
+		scanf("%i", &escolha);
+		switch(escolha){
+			case 1: 
+			{
+				system("CLS");
+				cadastro();
+				break;
+			}
+		case 2:
+			{
+				system("CLS");
+				consultar();
+				break;
+			}
+		case 3:
+			{
+				system("CLS");
+				listar();
+				break;
+			}
+		case 4:
+		{
+			system("CLS");
+			remover();
 			break;
-		 }
-		 case 2:
-		 {
-		 	listar();
-			break;
-		 }
-		 case 3:
-		 {
-		 	listar();
-			break;
-		 }
-	 }
-}
+		}
+		}
+	}
 }
